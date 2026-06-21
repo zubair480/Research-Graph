@@ -1,11 +1,10 @@
 @echo off
-cd /d "%~dp0"
+cd /d "%~dp0..\backend"
 set PORT=8070
 echo.
 echo ========================================
-echo   Thread API v2.2 - Port %PORT%
-echo   Mermaid graph chat ENABLED
+echo   Thread API - Port %PORT%
 echo ========================================
 echo.
-python main.py
+python -m app.main
 pause

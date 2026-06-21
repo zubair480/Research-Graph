@@ -20,15 +20,16 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from local_llm import (
+from app.llm import (
     active_llm_provider,
     generate_chat_response,
     ollama_is_available,
     split_summary_and_mermaid,
     summarize_document,
 )
+from app import BACKEND_ROOT, DATA_DIR
 
-load_dotenv(Path(__file__).resolve().parent / ".env")
+load_dotenv(BACKEND_ROOT / ".env")
 
 logger = logging.getLogger("thread")
 logging.basicConfig(level=logging.INFO)
@@ -64,7 +65,7 @@ app.add_middleware(
 )
 
 _hydradb_client = None
-MEMORY_FILE = Path(__file__).resolve().parent / "data" / "memory.json"
+MEMORY_FILE = DATA_DIR / "memory.json"
 _local_memory_store: list[dict[str, str]] = []
 
 
@@ -393,4 +394,4 @@ if __name__ == "__main__":
         print("Note: using local disk-backed memory store (HydraDB optional).")
     print(f"Frontend proxy target: http://{host}:{port}")
 
-    uvicorn.run(app, host=host, port=port)
+    uvicorn.run("app.main:app", host=host, port=port, factory=False)

@@ -1,7 +1,8 @@
 # Environment
 .env
 .env.local
-Thread AI Studio/.env
+backend/.env
+frontend/.env
 
 # Python
 __pycache__/
@@ -9,9 +10,19 @@ __pycache__/
 *.egg-info/
 .venv/
 venv/
+backend/.venv/
 
 # Runtime data
-data/memory.json
+backend/data/memory.json
+data/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Legacy folder (remove after local cleanup)
+Thread AI Studio/
 
 # OS / editor
 .DS_Store

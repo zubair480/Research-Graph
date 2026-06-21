@@ -456,7 +456,7 @@ def extractive_chat_reply(user_message: str, memory_context: str) -> ChatResult:
 
 
 # ---------------------------------------------------------------------------
-# Public API used by main.py
+# Public API used by app.main
 # ---------------------------------------------------------------------------
 
 SUMMARY_SYSTEM_PROMPT = """You are a research analyst preparing structured memory for an AI assistant.
