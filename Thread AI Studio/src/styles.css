@@ -1,0 +1,160 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.998 0 0);
+  --foreground: oklch(0.18 0.004 270);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.004 270);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.004 270);
+  --primary: oklch(0.18 0.004 270);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.965 0.002 270);
+  --secondary-foreground: oklch(0.28 0.004 270);
+  --muted: oklch(0.965 0.002 270);
+  --muted-foreground: oklch(0.5 0.006 270);
+  --accent: oklch(0.965 0.002 270);
+  --accent-foreground: oklch(0.18 0.004 270);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.91 0.003 270);
+  --input: oklch(0.91 0.003 270);
+  --ring: oklch(0.75 0.006 270);
+}
+
+.dark {
+  --background: oklch(0.13 0.004 270);
+  --foreground: oklch(0.96 0.002 270);
+  --card: oklch(0.16 0.004 270);
+  --card-foreground: oklch(0.96 0.002 270);
+  --popover: oklch(0.16 0.004 270);
+  --popover-foreground: oklch(0.96 0.002 270);
+  --primary: oklch(0.96 0.002 270);
+  --primary-foreground: oklch(0.13 0.004 270);
+  --secondary: oklch(0.2 0.004 270);
+  --secondary-foreground: oklch(0.96 0.002 270);
+  --muted: oklch(0.2 0.004 270);
+  --muted-foreground: oklch(0.62 0.006 270);
+  --accent: oklch(0.2 0.004 270);
+  --accent-foreground: oklch(0.96 0.002 270);
+  --destructive: oklch(0.65 0.18 22);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(1 0 0 / 7%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.45 0.006 270);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html,
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  ::selection {
+    background: oklch(0.18 0.004 270 / 12%);
+  }
+
+  .dark ::selection {
+    background: oklch(0.96 0.002 270 / 16%);
+  }
+
+  .thread-mermaid svg {
+    filter: none;
+  }
+
+  .thread-mermaid-canvas {
+    min-height: 220px;
+  }
+
+  .thread-mermaid-canvas svg text,
+  .thread-mermaid-canvas svg tspan {
+    font-size: 16px;
+  }
+
+  .thread-mermaid-canvas foreignObject div,
+  .thread-mermaid-canvas foreignObject span,
+  .thread-mermaid-canvas foreignObject p {
+    font-size: 18px !important;
+    line-height: 1.45 !important;
+  }
+
+  .thread-prose > :first-child {
+    margin-top: 0;
+  }
+
+  .thread-prose-document h1 {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .thread-prose-compact h2,
+  .thread-prose-compact h3 {
+    margin-top: 1rem;
+  }
+
+  .thread-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.5 0.006 270 / 25%) transparent;
+  }
+
+  .thread-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .thread-scroll::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: oklch(0.5 0.006 270 / 20%);
+  }
+
+  .dark .thread-scroll::-webkit-scrollbar-thumb {
+    background: oklch(0.96 0.002 270 / 12%);
+  }
+}

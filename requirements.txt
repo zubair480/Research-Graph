@@ -1,0 +1,6 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pdfplumber>=0.11.0
+python-multipart>=0.0.12
+python-dotenv>=1.0.0
+hydradb-sdk>=2.0.0
