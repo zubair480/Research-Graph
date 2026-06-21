@@ -1,0 +1,19 @@
+# Environment
+.env
+.env.local
+Thread AI Studio/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Runtime data
+data/memory.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
